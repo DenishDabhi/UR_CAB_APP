@@ -8,7 +8,7 @@ const EarningIcon = ({
 }: {
   height?: number;
   width?: number;
-  color?: string;
+  color?: string;    
 }) => {
   return (
     <Svg width={width ?? 24} height={height ?? 24} viewBox="0 0 24 24" fill="none">
