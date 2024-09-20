@@ -2,11 +2,12 @@
 import {Image, Pressable, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
-import {IconButton} from 'react-native-paper';
 import {mobileMenuStyle} from './style';
-import Close from '../../../icons/close';
+import CloseIcon from '../../../assets/svg/close-icon';
+import StarIcon from '../../../assets/svg/star-icon';
+import LogoutIcon from '../../../assets/svg/logout-icon';
 
-const MobileMenus = ({navigation, state, descriptors, menus}) => {
+const MobileMenus = ({navigation, state, descriptors, menus} :any) => {
   const focusedRoute = state.routes[state.index];
 
   return (
@@ -15,32 +16,38 @@ const MobileMenus = ({navigation, state, descriptors, menus}) => {
         <Pressable
           style={mobileMenuStyle.iconView}
           onPress={() => navigation.closeDrawer()}>
-          <Close color={'white'} height={25} width={25} />
+          <CloseIcon color={'white'} height={25} width={25} />
         </Pressable>
         <View style={mobileMenuStyle.imageView}>
-          <View style={{height: 70, width: 70}}>
+          <View style={{height: 100, width: 100}}>
             <Image
-              source={{
-                uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-              }}
+              source={require('../../../assets/images/profileImg.png')}
               style={mobileMenuStyle.image}
             />
           </View>
-          <View style={{alignItems: 'center'}}>
+          <View style={{alignItems: 'center', gap: 10}}>
             <Text style={mobileMenuStyle.profileName}>Mammat bin jamat</Text>
-            <Text style={mobileMenuStyle.stars}>★ ★ ★ ★ ★</Text>
+            <View style={mobileMenuStyle.starIcon}>
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </View>
           </View>
         </View>
       </View>
       <View style={mobileMenuStyle.mainListView}>
-        {menus.map((item, index) => {
+        {menus.map((item:any, index:any) => {
           const isFocused = focusedRoute.name === item.name;
           const customStyles = {
-            backgroundColor: isFocused ? '#cbbddb' : '#FFF',
+            backgroundColor: isFocused ? '#07009C1A' : '#FFFFFF',
             color: isFocused ? '#cbbddb' : 'black',
           };
           const activeMenu = {
-            color: isFocused ? 'blue' : 'black',
+            color: isFocused
+              ? mobileMenuStyle.ifFocused
+              : mobileMenuStyle.ifNotFocused,
           };
 
           return (
@@ -48,19 +55,19 @@ const MobileMenus = ({navigation, state, descriptors, menus}) => {
               key={index}
               onPress={() => navigation.navigate(item.name)}
               style={[customStyles, mobileMenuStyle.menuItem]}>
-              <IconButton
-                icon={item.icon}
-                size={20}
-                style={[customStyles]}
-                iconColor={isFocused ? 'blue' : 'black'}
-              />
-              <Text style={[mobileMenuStyle.menuTitle, activeMenu]}>
+              <View>{item.icon}</View>
+              <Text style={[ isFocused ? mobileMenuStyle.ifFocused : mobileMenuStyle.ifNotFocused ]}>
                 {item.name}
               </Text>
             </TouchableOpacity>
           );
         })}
+
       </View>
+      <TouchableOpacity style={[mobileMenuStyle.menuItem2]}>
+          <LogoutIcon/>
+          <Text style={[mobileMenuStyle.ifNotFocused]}>Logout</Text>
+        </TouchableOpacity>
     </DrawerContentScrollView>
   );
 };

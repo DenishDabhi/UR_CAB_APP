@@ -6,14 +6,20 @@ const vehicalStyle = StyleSheet.create({
     backgroundColor: '#FFF',
     padding: 10,
   },
+  mainView:{
+    gap:25
+  },
   noRecordView: {
     marginTop: '80%',
     alignItems: 'center',
+    gap:5
   },
   readyView: {
-    color: 'black',
-    fontSize: 18,
-    // fontFamily:'lato'
+    color: '#272727',
+    fontSize: 20,
+    fontFamily:'lato',
+    fontWeight:'900',
+    lineHeight:24
   },
   noVehical: {
     fontSize: 14,
@@ -21,9 +27,9 @@ const vehicalStyle = StyleSheet.create({
   },
   addButtonView: {position: 'absolute', bottom: 30, right: 30},
   button: {
-    height: 60,
-    width: 60,
-    backgroundColor: 'yellow',
+    height: 75,
+    width: 75,
+    backgroundColor: '#EDBD00',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 100,

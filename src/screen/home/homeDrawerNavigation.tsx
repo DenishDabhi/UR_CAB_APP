@@ -13,6 +13,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 // import FindDoulaIcon from '../../icons/find-doula-icon';
 import MobileMenus from './mobile-menu';
 import ManagingVehicle from '../managing-vehicle';
+import VehicleIcon from '../../assets/svg/vehical-icon';
 // import ManagingVehicle from '../managing-vehicle';
 
 const HomeDrawerNavigation = () => {
@@ -41,13 +42,13 @@ const HomeDrawerNavigation = () => {
     {
       name: 'Managing Vehicle',
       component: ManagingVehicle,
-      // icon: JoinAsProIcon, // please add icon
+      icon: <VehicleIcon height={24} width={24}/>,
     },
   ];
 
   return (
     <drawer.Navigator
-      screenOptions={{ headerShown: false, drawerStyle: { width: 260 } }}
+      screenOptions={{ headerShown: false, drawerStyle: { width: 289 } }}
       drawerContent={props => <MobileMenus {...props} menus={screen} />}>
       {screen.map((item, index) => (
         <drawer.Screen

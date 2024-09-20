@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */ /* eslint-disable prettier/prettier */
 import {Image, Switch, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
-import {vehicleListStyle} from './style';
+import {vehicleListStyle} from './style/index';
 
-const VehicleList = ({image, name, pfq}:any) => {
+const VehicleList = ({image, name, pfq}: any) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const SwithFunc = () => {
     setIsEnabled(!isEnabled);
@@ -12,12 +12,7 @@ const VehicleList = ({image, name, pfq}:any) => {
     <View style={vehicleListStyle.container}>
       <View style={vehicleListStyle.mainView}>
         <View style={vehicleListStyle.imageView}>
-          <Image
-            source={{
-              uri: image,
-            }}
-            style={vehicleListStyle.image}
-          />
+          <Image source={image} style={vehicleListStyle.image} />
         </View>
         <View style={{gap: 5}}>
           <View style={{gap: 5}}>
@@ -36,12 +31,12 @@ const VehicleList = ({image, name, pfq}:any) => {
       </View>
       <View style={vehicleListStyle.switchView}>
         <Text style={vehicleListStyle.switchText}>{`${
-          isEnabled ? 'Disabled' : 'Enabled'
+          isEnabled ? 'Enabled' : 'Disabled'
         }`}</Text>
         <Switch
-        style={{transform: [{scaleX: 1.2}, {scaleY: 1.2}]}}
-          trackColor={{false: '#c8d2e6', true: '#81b0ff'}}
-          thumbColor={isEnabled ? '#000' : '#000'}
+          style={{transform: [{scaleX: 1.2}, {scaleY: 1.2}]}}
+          trackColor={{false: '#F2F2F2', true: '#F2F2F2'}}
+          thumbColor={isEnabled ? '#263238' : '#263238'}
           onValueChange={() => {
             SwithFunc();
           }}

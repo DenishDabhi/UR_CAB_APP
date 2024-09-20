@@ -6,16 +6,16 @@ export const vehicleListStyle = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        padding:10
+        padding:24,
     },
     mainView:{
         flexDirection:'row',
         // alignItems:'center',
-        gap:10
+        gap:12
     },
     imageView:{
-        width:50,
-        height:50,
+        width:55,
+        height:55,
     },
     image:{
         width:'100%',
@@ -24,13 +24,17 @@ export const vehicleListStyle = StyleSheet.create({
     },
     texiView:{
         fontSize:15,
-        color:'black',
-        fontWeight:'600',
-        // fontFamily:'lato'
+        color:'#272727',
+        fontWeight:'700',
+        fontFamily:'lato',
+        lineHeight:20
     },
     pfqText:{
         fontSize:12,
-        // fontFamily:'lato'
+        fontFamily:'lato',
+        fontWeight:'400',
+        color:'#848484',
+        lineHeight:20
     },
     documentView:{
         flexDirection:'row',
@@ -39,15 +43,18 @@ export const vehicleListStyle = StyleSheet.create({
     },
     documentText:{
         fontSize:12,
-        fontWeight:'600',
-        color:'orange',
+        fontWeight:'700',
+        color:'#EDBD00',
         textDecorationLine:'underline',
-        // fontFamily:'lato'
+        fontFamily:'lato',
+        lineHeight:20
     },
     deleteText:{
         fontSize:12,
-        color:'black',
-        // fontFamily:'lato'
+        color:'#272727',
+        fontFamily:'lato',
+        fontWeight:'700',
+        lineHeight:20
     },
     switchView:{
         flexDirection:'row',
@@ -56,7 +63,9 @@ export const vehicleListStyle = StyleSheet.create({
     },
     switchText:{
         fontSize:13,
-        // color:'black',
-        // fontFamily:'lato'
+        color:'#848484',
+        fontFamily:'lato',
+        fontWeight:'700',
+        lineHeight:20
     }
 });
